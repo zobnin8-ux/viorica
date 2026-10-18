@@ -1,0 +1,56 @@
+name: Optimize site images
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/optimize-images.yml'
+      - 'assets/photos/*.jpg'
+permissions:
+  contents: write
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install pillow
+      - name: Create WebP and social preview
+        run: |
+          python - <<'PY'
+          from PIL import Image,ImageDraw,ImageFont
+          from pathlib import Path
+          base=Path('assets/photos')
+          excluded={'photo_2026-10-18_19-48-52.jpg','photo_2026-10-18_19-48-58.jpg','photo_2026-10-18_19-49-01.jpg'}
+          for path in base.glob('*.jpg'):
+              if path.name in excluded:
+                  continue
+              im=Image.open(path).convert('RGB')
+              im.thumbnail((1200,1600),Image.Resampling.LANCZOS)
+              im.save(path.with_suffix('.webp'),'WEBP',quality=82,method=6)
+          bg=Image.new('RGB',(1200,630),'#1c1123')
+          draw=ImageDraw.Draw(bg)
+          for x in range(1200):
+              t=x/1200
+              draw.line((x,0,x,630),fill=(int(28+27*t),int(17+12*t),int(35+17*t)))
+          portrait=Image.open(base/'photo_2026-10-18_15-50-17.jpg').convert('RGB')
+          portrait.thumbnail((520,610),Image.Resampling.LANCZOS)
+          bg.paste(portrait,(1200-portrait.width-45,(630-portrait.height)//2))
+          font='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
+          draw.text((65,180),'Viorica Cazac',font=ImageFont.truetype(font,50),fill='#f8f0e7')
+          draw.text((68,265),'Practici de autocunoaștere',font=ImageFont.truetype(font,25),fill='#e9c992')
+          draw.text((68,320),'Гипнотерапия · Самопознание',font=ImageFont.truetype(font,21),fill='#d6c7d6')
+          bg.save('assets/og.jpg',quality=85,optimize=True)
+          PY
+      - name: Commit optimized assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/photos/*.webp assets/og.jpg
+          if ! git diff --cached --quiet; then
+            git commit -m "Add optimized WebP portraits and OG preview [skip ci]"
+            git push
+          fi
