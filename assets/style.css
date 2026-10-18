@@ -13,3 +13,6 @@ button,input,select,textarea{font:inherit;color:inherit}.form input,.form select
 
 /* Temporary editorial portraits — replace with approved thematic art later */
 .article-portrait{width:min(100%,360px);margin:0 auto 46px}.article-portrait img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:var(--radius);box-shadow:0 24px 60px rgba(0,0,0,.45)}.article>h1+.article-portrait{margin-top:0}.article .article-portrait+.original-copy{margin-top:0}@media(max-width:650px){.article-portrait{width:min(100%,300px);margin-bottom:34px}}
+
+/* Viorica's original photo collection */
+.about-photo-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:800px;margin:55px auto 70px}.about-photo-gallery figure{margin:0}.about-photo-gallery img{display:block;width:100%;height:auto;border-radius:var(--radius,6px);box-shadow:0 24px 60px rgba(0,0,0,.45)}@media(max-width:650px){.about-photo-gallery{grid-template-columns:1fr;max-width:340px;gap:28px}}
