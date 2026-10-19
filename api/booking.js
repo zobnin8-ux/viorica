@@ -67,7 +67,7 @@ export default async function handler(req, res) {
     '🌐 Источник: сайт',
     '🕒 ' + submittedAt + ' · Кишинёв',
     '✓ Согласие на обработку данных получено'
-  ].join('\\n');
+  ].join('\n');
 
   try {
     const controller = new AbortController();
