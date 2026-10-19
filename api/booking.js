@@ -38,14 +38,36 @@ export default async function handler(req, res) {
   const chat = process.env.TELEGRAM_CHAT_ID;
   if (!token || !chat) return res.status(503).json({ error: 'Not configured' });
 
+  // Telegram HTML requires escaping all client-controlled fields.
+  const escapeHtml = value => value.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  const field = (value, max) => escapeHtml(value.trim().slice(0, max));
+  const submittedAt = new Intl.DateTimeFormat('ru-RU', {
+    timeZone: 'Europe/Chisinau', day: '2-digit', month: '2-digit', year: 'numeric',
+    hour: '2-digit', minute: '2-digit', hour12: false
+  }).format(new Date());
+
   const text = [
-    '📩 Новая заявка с сайта Виорики',
-    'Имя: ' + clean(name, 100),
-    'Контакт: ' + clean(contact, 200),
-    'Направление: ' + SERVICES[service],
-    'Комментарий: ' + (clean(message, 1500) || '—'),
-    'Согласие на обработку данных: да'
-  ].join('\n');
+    '✦ <b>VIORICA CAZAC</b>',
+    '<b>НОВАЯ ЗАЯВКА</b>',
+    '━━━━━━━━━━━━━━━━━━',
+    '',
+    '👤 <b>Клиент</b>',
+    field(name, 100),
+    '',
+    '✉️ <b>Контакт</b>',
+    field(contact, 200),
+    '',
+    '◈ <b>Направление</b>',
+    escapeHtml(SERVICES[service]),
+    '',
+    '📝 <b>Комментарий</b>',
+    field(message, 1500) || 'Не указан',
+    '',
+    '━━━━━━━━━━━━━━━━━━',
+    '🌐 Источник: сайт',
+    '🕒 ' + submittedAt + ' · Кишинёв',
+    '✓ Согласие на обработку данных получено'
+  ].join('\\n');
 
   try {
     const controller = new AbortController();
@@ -55,7 +77,7 @@ export default async function handler(req, res) {
       response = await fetch('https://api.telegram.org/bot' + token + '/sendMessage', {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ chat_id: chat, text }),
+        body: JSON.stringify({ chat_id: chat, text, parse_mode: 'HTML', disable_web_page_preview: true }),
         signal: controller.signal
       });
     } finally {
