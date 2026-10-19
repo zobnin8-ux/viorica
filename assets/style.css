@@ -56,3 +56,10 @@
 @media(max-width:850px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}.practices-grid .practice-tile,.practices-grid .practice-tile:nth-child(7),.practices-grid .practice-tile:nth-child(8){grid-column:auto}.practice-tile .tile-copy{padding:16px}.practice-tile h3{font-size:clamp(19px,3vw,26px)}}
 @media(max-width:520px){.practices-grid{gap:26px 13px;margin-top:25px}.practice-tile .practice-image{aspect-ratio:3/4}.practice-tile .tile-copy{padding:12px 10px;gap:5px}.practice-tile h3{font-size:clamp(15px,4vw,20px)}.practice-tile .tile-arrow{font-size:20px}.practice-tile>.tile-description{font-size:12px;line-height:1.45;margin-top:8px}}
 @media(max-width:370px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:0;aspect-ratio:auto}}
+
+
+/* Approach portrait: natural dimensions, no grid stretching */
+.approach{align-items:center}
+.approach picture,.approach .approach-photo-wrap{height:auto!important;min-height:0!important;flex:none!important;align-self:center!important}
+.approach img,.approach .approach-photo{display:block!important;width:100%!important;max-width:380px!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:3/4!important;object-fit:cover!important;object-position:50% 15%!important;border-radius:var(--radius);margin:0 auto!important;align-self:center!important;flex:none!important}
+@media(max-width:760px){.approach img,.approach .approach-photo{max-width:300px!important}}
