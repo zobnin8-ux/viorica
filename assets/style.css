@@ -20,3 +20,72 @@
 
 /* Pricing and reviews placeholders */
 .placeholder-panel{padding:36px 32px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(140deg,var(--surface),var(--bg2));display:flex;flex-direction:column;gap:16px}.placeholder-panel h2{font-size:clamp(24px,3vw,34px)}.info-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.info-card{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);display:flex;flex-direction:column;gap:12px}.info-card h3{color:var(--gold-soft)}.info-card p{font-size:15px}@media(max-width:680px){.info-grid{grid-template-columns:1fr}.placeholder-panel{padding:26px 20px}}
+
+
+/* Approved Viorica visual collection — 2026-10 */
+.silk-hero{position:relative;isolation:isolate;background:#1a0b15 url('/assets/practices/hero-silk.webp') center 48%/cover no-repeat}
+.silk-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(15,7,16,.94) 0%,rgba(18,8,19,.79) 44%,rgba(19,8,18,.36) 100%)}
+.silk-hero .hero-inner{position:relative}
+.silk-hero h1,.silk-hero .lead{filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+.practices-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:30px}
+.practices-grid .practice-tile{position:relative;isolation:isolate;display:flex;flex-direction:column;justify-content:flex-end;min-height:385px;aspect-ratio:3/4;padding:24px 20px;border:0;border-radius:0;background:#1b101e var(--tile-image) center center/cover no-repeat;overflow:hidden;transition:filter .25s ease}
+.practices-grid .practice-tile:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 25%,rgba(0,0,0,.2) 45%,rgba(0,0,0,.9) 100%);transition:background .2s}
+.practices-grid .practice-tile:hover{transform:none;filter:brightness(1.12);border:0;background-color:#1b101e}
+.practice-tile .tile-copy{display:flex;flex-direction:column;align-items:flex-start;gap:8px;position:relative}
+.practice-tile h3{font:400 clamp(21px,2vw,30px)/1.1 var(--serif);color:#f3dfc4;text-shadow:0 2px 8px #0009}
+.practice-tile .tile-description{font:400 13px/1.45 var(--sans);color:#f2e5d5;min-height:38px;text-shadow:0 1px 5px #000}
+.practice-tile .tile-arrow{display:grid;place-items:center;width:42px;height:42px;border:1px solid #ebd3b2;border-radius:50%;font-size:23px;line-height:1;color:#f4e3ce;margin-top:4px}
+@media(max-width:900px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:360px}}
+@media(max-width:650px){.silk-hero:before{background:linear-gradient(180deg,rgba(15,7,16,.85),rgba(15,7,16,.5))}.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:280px;aspect-ratio:3/5;padding:15px 12px;flex-direction:column;align-items:stretch}.practice-tile h3{font-size:clamp(17px,4.3vw,24px)}.practice-tile .tile-description{font-size:11px;min-height:0}.practice-tile .tile-arrow{width:34px;height:34px;font-size:20px}}
+@media(max-width:370px){.practices-grid{grid-template-columns:1fr}.practices-grid .practice-tile{min-height:370px;aspect-ratio:4/5}}
+
+
+/* Editorial gallery: three columns, centered final pair */
+.practices-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:38px 24px;margin-top:38px;align-items:start}
+.practices-grid .practice-tile{grid-column:span 2;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;min-height:0;aspect-ratio:auto;padding:0;border:0;background:none!important;overflow:visible;filter:none!important;box-shadow:none;text-decoration:none;transition:none}
+.practices-grid .practice-tile:nth-child(7){grid-column:2 / span 2}
+.practices-grid .practice-tile:nth-child(8){grid-column:4 / span 2}
+.practices-grid .practice-tile:before{display:none}
+.practice-tile .practice-image{position:relative;isolation:isolate;display:flex;align-items:flex-end;width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:5px;background:#211422 var(--tile-image) center/cover no-repeat;transition:background-size .3s ease,filter .3s ease}
+.practice-tile .practice-image:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 48%,rgba(13,6,15,.74) 100%)}
+.practice-tile .tile-copy{display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;gap:12px;width:100%;padding:20px 18px}
+.practice-tile h3{font-size:clamp(21px,2vw,28px);line-height:1.12;max-width:calc(100% - 32px);margin:0}
+.practice-tile .tile-arrow{width:auto;height:auto;border:0;border-radius:0;margin:0;font-size:25px;color:#e2b87c}
+.practice-tile>.tile-description{display:block;color:#c6b9c7;font-size:14px;line-height:1.55;margin-top:12px;min-height:0;text-shadow:none}
+.practices-grid .practice-tile:hover .practice-image{filter:brightness(1.09)}
+@media(max-width:850px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}.practices-grid .practice-tile,.practices-grid .practice-tile:nth-child(7),.practices-grid .practice-tile:nth-child(8){grid-column:auto}.practice-tile .tile-copy{padding:16px}.practice-tile h3{font-size:clamp(19px,3vw,26px)}}
+@media(max-width:520px){.practices-grid{gap:26px 13px;margin-top:25px}.practice-tile .practice-image{aspect-ratio:3/4}.practice-tile .tile-copy{padding:12px 10px;gap:5px}.practice-tile h3{font-size:clamp(15px,4vw,20px)}.practice-tile .tile-arrow{font-size:20px}.practice-tile>.tile-description{font-size:12px;line-height:1.45;margin-top:8px}}
+@media(max-width:370px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:0;aspect-ratio:auto}}
+
+
+/* Approach portrait: natural dimensions, no grid stretching */
+.approach{align-items:center}
+.approach picture,.approach .approach-photo-wrap{height:auto!important;min-height:0!important;flex:none!important;align-self:center!important}
+.approach img,.approach .approach-photo{display:block!important;width:100%!important;max-width:380px!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:3/4!important;object-fit:cover!important;object-position:50% 15%!important;border-radius:var(--radius);margin:0 auto!important;align-self:center!important;flex:none!important}
+@media(max-width:760px){.approach img,.approach .approach-photo{max-width:300px!important}}
+
+
+/* Mobile usability pass: legible editorial cards and safe narrow layouts */
+html{overflow-x:clip}
+.wrap,.hero-inner,.hero-grid,.about,.approach,.cards,.card,.tile,.practice-tile{min-width:0}
+.navlinks{row-gap:12px}
+.navlinks a{display:inline-flex;align-items:center;min-height:36px}
+.form input,.form select,.form textarea{min-width:0;max-width:100%}
+.form .consent-check{flex-direction:row;align-items:flex-start}
+.form .consent-check input[type="checkbox"]{width:18px;min-width:18px;max-width:18px;flex:0 0 18px}
+.card summary{min-height:56px}
+@media(max-width:520px){
+  .nav{padding-block:16px}
+  .navlinks{column-gap:16px;row-gap:4px}
+  .hero .lead{font-size:17px;line-height:1.6}
+  .practices-grid{grid-template-columns:1fr;gap:30px}
+  .practices-grid .practice-tile,.practices-grid .practice-tile:nth-child(7),.practices-grid .practice-tile:nth-child(8){grid-column:auto}
+  .practice-tile .practice-image{aspect-ratio:3/4}
+  .practice-tile .tile-copy{padding:22px 20px}
+  .practice-tile h3{font-size:clamp(23px,6vw,29px)}
+  .practice-tile .tile-arrow{font-size:26px}
+  .practice-tile>.tile-description{font-size:14px;line-height:1.55;margin-top:10px}
+  .quotes q{max-width:100%;overflow-wrap:anywhere}
+  .related-card{padding:18px}
+  .foot,.legal-links{overflow-wrap:anywhere}
+}
