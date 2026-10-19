@@ -63,3 +63,29 @@
 .approach picture,.approach .approach-photo-wrap{height:auto!important;min-height:0!important;flex:none!important;align-self:center!important}
 .approach img,.approach .approach-photo{display:block!important;width:100%!important;max-width:380px!important;height:auto!important;min-height:0!important;max-height:none!important;aspect-ratio:3/4!important;object-fit:cover!important;object-position:50% 15%!important;border-radius:var(--radius);margin:0 auto!important;align-self:center!important;flex:none!important}
 @media(max-width:760px){.approach img,.approach .approach-photo{max-width:300px!important}}
+
+
+/* Mobile usability pass: legible editorial cards and safe narrow layouts */
+html{overflow-x:clip}
+.wrap,.hero-inner,.hero-grid,.about,.approach,.cards,.card,.tile,.practice-tile{min-width:0}
+.navlinks{row-gap:12px}
+.navlinks a{display:inline-flex;align-items:center;min-height:36px}
+.form input,.form select,.form textarea{min-width:0;max-width:100%}
+.form .consent-check{flex-direction:row;align-items:flex-start}
+.form .consent-check input[type="checkbox"]{width:18px;min-width:18px;max-width:18px;flex:0 0 18px}
+.card summary{min-height:56px}
+@media(max-width:520px){
+  .nav{padding-block:16px}
+  .navlinks{column-gap:16px;row-gap:4px}
+  .hero .lead{font-size:17px;line-height:1.6}
+  .practices-grid{grid-template-columns:1fr;gap:30px}
+  .practices-grid .practice-tile,.practices-grid .practice-tile:nth-child(7),.practices-grid .practice-tile:nth-child(8){grid-column:auto}
+  .practice-tile .practice-image{aspect-ratio:3/4}
+  .practice-tile .tile-copy{padding:22px 20px}
+  .practice-tile h3{font-size:clamp(23px,6vw,29px)}
+  .practice-tile .tile-arrow{font-size:26px}
+  .practice-tile>.tile-description{font-size:14px;line-height:1.55;margin-top:10px}
+  .quotes q{max-width:100%;overflow-wrap:anywhere}
+  .related-card{padding:18px}
+  .foot,.legal-links{overflow-wrap:anywhere}
+}
