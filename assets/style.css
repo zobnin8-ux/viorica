@@ -38,3 +38,21 @@
 @media(max-width:900px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:360px}}
 @media(max-width:650px){.silk-hero:before{background:linear-gradient(180deg,rgba(15,7,16,.85),rgba(15,7,16,.5))}.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:280px;aspect-ratio:3/5;padding:15px 12px;flex-direction:column;align-items:stretch}.practice-tile h3{font-size:clamp(17px,4.3vw,24px)}.practice-tile .tile-description{font-size:11px;min-height:0}.practice-tile .tile-arrow{width:34px;height:34px;font-size:20px}}
 @media(max-width:370px){.practices-grid{grid-template-columns:1fr}.practices-grid .practice-tile{min-height:370px;aspect-ratio:4/5}}
+
+
+/* Editorial gallery: three columns, centered final pair */
+.practices-grid{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:38px 24px;margin-top:38px;align-items:start}
+.practices-grid .practice-tile{grid-column:span 2;display:flex;flex-direction:column;justify-content:flex-start;align-items:stretch;min-height:0;aspect-ratio:auto;padding:0;border:0;background:none!important;overflow:visible;filter:none!important;box-shadow:none;text-decoration:none;transition:none}
+.practices-grid .practice-tile:nth-child(7){grid-column:2 / span 2}
+.practices-grid .practice-tile:nth-child(8){grid-column:4 / span 2}
+.practices-grid .practice-tile:before{display:none}
+.practice-tile .practice-image{position:relative;isolation:isolate;display:flex;align-items:flex-end;width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:5px;background:#211422 var(--tile-image) center/cover no-repeat;transition:background-size .3s ease,filter .3s ease}
+.practice-tile .practice-image:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,transparent 48%,rgba(13,6,15,.74) 100%)}
+.practice-tile .tile-copy{display:flex;flex-direction:row;justify-content:space-between;align-items:flex-end;gap:12px;width:100%;padding:20px 18px}
+.practice-tile h3{font-size:clamp(21px,2vw,28px);line-height:1.12;max-width:calc(100% - 32px);margin:0}
+.practice-tile .tile-arrow{width:auto;height:auto;border:0;border-radius:0;margin:0;font-size:25px;color:#e2b87c}
+.practice-tile>.tile-description{display:block;color:#c6b9c7;font-size:14px;line-height:1.55;margin-top:12px;min-height:0;text-shadow:none}
+.practices-grid .practice-tile:hover .practice-image{filter:brightness(1.09)}
+@media(max-width:850px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px}.practices-grid .practice-tile,.practices-grid .practice-tile:nth-child(7),.practices-grid .practice-tile:nth-child(8){grid-column:auto}.practice-tile .tile-copy{padding:16px}.practice-tile h3{font-size:clamp(19px,3vw,26px)}}
+@media(max-width:520px){.practices-grid{gap:26px 13px;margin-top:25px}.practice-tile .practice-image{aspect-ratio:3/4}.practice-tile .tile-copy{padding:12px 10px;gap:5px}.practice-tile h3{font-size:clamp(15px,4vw,20px)}.practice-tile .tile-arrow{font-size:20px}.practice-tile>.tile-description{font-size:12px;line-height:1.45;margin-top:8px}}
+@media(max-width:370px){.practices-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.practices-grid .practice-tile{min-height:0;aspect-ratio:auto}}
