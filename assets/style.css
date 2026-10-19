@@ -89,3 +89,9 @@ html{overflow-x:clip}
   .related-card{padding:18px}
   .foot,.legal-links{overflow-wrap:anywhere}
 }
+
+/* Full-length requested homepage portrait, no facial or head cropping */
+.silk-hero .portrait-wrap{width:100%;max-width:320px}
+.silk-hero .portrait-wrap picture{width:100%;max-width:none}
+.silk-hero .portrait-wrap .portrait{width:100%;height:auto;aspect-ratio:auto;max-height:none;object-fit:contain;object-position:center}
+@media(max-width:760px){.silk-hero .portrait-wrap{max-width:260px}}
