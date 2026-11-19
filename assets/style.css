@@ -110,3 +110,6 @@ html{overflow-x:clip}
 .certificate-gallery .certificate-trigger{width:100%;height:210px;max-width:100%}
 .certificate-gallery .certificate-caption{display:block;font-size:12px;line-height:1.4;margin-top:8px;max-width:100%;overflow-wrap:anywhere}
 @media(max-width:520px){.certificate-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.certificate-gallery .certificate-trigger{height:160px}}
+
+/* Three consistent certificate cards on wider screens */
+@media(min-width:700px){.certificate-gallery{grid-template-columns:repeat(3,minmax(0,210px));max-width:670px}}
